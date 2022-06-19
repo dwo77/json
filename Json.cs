@@ -252,10 +252,7 @@ namespace dwo.Json
 		}
         public JsonValue GetValue(string key)
         {
-            if(!_values.ContainsKey(key))
-                return new JsonValue();
-
-            return _values[key];
+			return _values.ContainsKey(key) ? _values[key] : new JsonValue();
         }
         public void SetValue(string key,JsonValue jv)
         {
@@ -406,10 +403,7 @@ namespace dwo.Json
 		}
         public JsonObject GetSafeObject()
         {
-            if(ObjectVal == null)
-                return new JsonObject();
-
-            return ObjectVal;
+            return ObjectVal == null ? new JsonObject() : ObjectVal;
         }
         public bool IsNull
         {
